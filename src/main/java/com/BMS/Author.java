@@ -8,6 +8,9 @@ public class Author {
 
 
     public Author(String name , Optional<String> wikipediaUrl) {
+        if(!Policies.fullNamePolicy(name)){
+            throw new IllegalArgumentException("Full name is not valid");
+        }
         this.name = name;
         this.wikipediaUrl = wikipediaUrl;
     }
